@@ -1009,6 +1009,7 @@ button.btn--large {
   line-height: 6.4rem !important;
 }
 
+#HCB_comment_form_box .btn,
 .btn--stroke,
 button.btn--stroke {
   background: transparent !important;
@@ -1016,6 +1017,7 @@ button.btn--stroke {
   color: #000000;
 }
 
+#HCB_comment_form_box .btn:hover,
 .btn--stroke:hover,
 button.btn--stroke:hover {
   background: #000000 !important;
