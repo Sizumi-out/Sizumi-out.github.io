@@ -6,7 +6,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title> !!title - Scatter Sizumi</title>
+    <title> Yao.jlで量子もつれを学ぶ - Scatter Sizumi</title>
     <meta name="description" content="">
 
     <!-- mobile specific metas
@@ -85,8 +85,8 @@
                     <li class="has-children">
                         <a href="#0" title="">technology</a>
                         <ul class="sub-menu">
-                            <li><a href="category-qucom.html">量子コンピュータ</a></li>
-                            <li><a href="category.html">julia</a></li>
+                            <li class = "current"><a href="category-qucom.html">量子コンピュータ</a></li>
+                            <li class = "current"><a href="category-julia.html">julia</a></li>
                             <li><a href="category.html">Phisics</a></li>
                             <li><a href="category.html">math</a></li>
                         </ul>
@@ -96,7 +96,7 @@
                         <ul class="sub-menu">
                             <li><a href="category.html">Travel Post</a></li>
                             <li><a href="category.html">WebNovel Post</a></li>
-                            <li><a href="category.html">Other Post</a></li>
+                            <li><a href="category-other.html">Other Post</a></li>
                         </ul>
                     </li>
                     <li><a href="about-sizumi.html" title="">About</a></li>
@@ -142,9 +142,10 @@
                             title
                         </h1>
                         <ul class="entry__header-meta">
-                            <li class="date">20xx/x/x</li>
+                            <li class="date">2020/9/xx</li>
                             <li class="cat-links">
-                                <a href="#0">!category</a>
+                                <a href="category-qucom.html">量子コンピュータ</a>
+                                <a href="category-julia.html">Julia</a>
                             </li>
                         </ul>
                     </div> <!-- end entry__header -->
@@ -171,15 +172,15 @@
                     <div class="entry__pagenav">
                         <div class="entry__nav">
                             <div class="entry__prev">
-                                <a href="about-sizumi.html" rel="prev">
+                                <a href="intro_qc_adc.html" rel="prev">
                                     <span>Previous Post</span>
-                                    aaaaaa
+                                    量子コンピュータ入門 - なぜ早いのか
                                 </a>
                             </div>
                             <div class="entry__next">
                                 <a href="#0" rel="next">
                                     <span>Next Post</span>
-                                    bbbbbbbb
+                                    
                                 </a>
                             </div>
                         </div>
@@ -196,55 +197,17 @@
 
                 <div class="comments-wrap">
 
-                    <div id="comments" class="column large-13">
 
-                        <h3 class="h2">Comments</h3>
+                    <div id="HCB_comment_box">
+                        <a href="http://www.htmlcommentbox.com">コメント</a>
+                         is loading comments...
+                    </div>
 
-                        <!-- START commentlist -->
-                            <ol class="commentlist">
+                    <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24oeLnCbVeNBO2hmRxu2Lm30"+"&opts=16862&num=10&ts=1598433146653");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+                    
+                    <!-- end www.htmlcommentbox.com -->
 
-                            </ol>
-                            <!-- END commentlist -->
-
-
-                    </div> <!-- end comments -->
-
-                    <div class="column large-13 comment-respond">
-
-                        <!-- START respond -->
-                        <div id="respond">
-            
-                            <h3 class="h2">Add Comment <span>メールアドレスは公開されません</span></h3>
-        
-                            <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
-                                <fieldset>
-            
-                                    <div class="form-field">
-                                        <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
-                                    </div>
-            
-                                    <div class="form-field">
-                                        <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
-                                    </div>
-            
-                                    <div class="form-field">
-                                        <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
-                                    </div>
-            
-                                    <div class="message form-field">
-                                        <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
-                                    </div>
-            
-                                    <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Add Comment" type="submit">
-            
-                                </fieldset>
-                            </form> <!-- end form -->
-            
-                        </div>
-                        <!-- END respond-->
-            
-                    </div> <!-- end comment-respond -->
-            
                 </div> <!-- end comments-wrap -->
             </main>
 
