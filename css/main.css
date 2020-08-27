@@ -1010,13 +1010,14 @@ button.btn--medium {
   line-height: 6rem !important;
 }
 
+#HCB_comment_form_box .submit
 .btn--large,
 button.btn--large {
   height: 6.8rem !important;
   line-height: 6.4rem !important;
 }
 
-
+#HCB_comment_form_box .submit
 .btn--stroke,
 button.btn--stroke {
   background: transparent !important;
@@ -1024,6 +1025,7 @@ button.btn--stroke {
   color: #000000;
 }
 
+#HCB_comment_form_box .submit:hover
 .btn--stroke:hover,
 button.btn--stroke:hover {
   background: #000000 !important;
@@ -1044,8 +1046,7 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-#HCB_comment_form_box a.btn,
-#HCB_comment_form_box .submit{
+#HCB_comment_form_box a.btn{
   background: none;
   background-color:transparent;
   border: 0.2rem solid;
@@ -1055,8 +1056,7 @@ input::-moz-focus-inner {
   line-height: 6rem !important;
 }
 
-#HCB_comment_form_box a.btn:hover,
-#HCB_comment_form_box .submit:hover{
+#HCB_comment_form_box a.btn:hover{
   background-color: #000000;
   transition: background-color 0.2s;
   border: 0.2rem solid #000000;
@@ -1072,20 +1072,35 @@ input::-moz-focus-inner {
  * commentについて ↓
  * ------------------------------------------------------------------- */
 
+ #HCB_comment_box textarea {
+  height: 42px;
+  border-color: #000000;
+}
+
 #HCB_comment_box textarea {
-  height: 200px;
+  height: 150px !important;
   border-color: #000000;
 }
 
 #HCB_comment_box blockquote::before {
+  display: inline-block;
   position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
   font-family: FontAwesome;
   content: '\f101';
   color: #000000;
 }
 
 #HCB_comment_box blockquote:after {
+  display: inline-block;
   position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
   font-family: FontAwesome;
   content: '\f100';
   color: #000000;
