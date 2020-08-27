@@ -508,6 +508,7 @@ td:last-child {
 /* ------------------------------------------------------------------- 
  * ## Spacing 
  * ------------------------------------------------------------------- */
+ #HCB_comment_form_box .submit,
 button,
 .btn {
   margin-bottom: 1.6rem;
@@ -952,6 +953,7 @@ input[type="button"] {
 
 
 #HCB_comment_form_box .submit:hover,
+#HCB_comment_form_box .submit:focus,
 .btn:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -1016,7 +1018,7 @@ button.btn--large {
   line-height: 6.4rem !important;
 }
 
-#HCB_comment_form_box .submit
+
 .btn--stroke,
 button.btn--stroke {
   background: transparent !important;
@@ -1024,7 +1026,7 @@ button.btn--stroke {
   color: #000000;
 }
 
-#HCB_comment_form_box .submit:hover
+
 .btn--stroke:hover,
 button.btn--stroke:hover {
   background: #000000 !important;
@@ -1045,10 +1047,7 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-#HCB_comment_form_box .submit{
-  color: #ffffff !important;
-}
-
+#HCB_comment_form_box .submit,
 #HCB_comment_form_box a.btn{
   background: none;
   background-color:transparent;
@@ -1059,6 +1058,7 @@ input::-moz-focus-inner {
   line-height: 6rem !important;
 }
 
+#HCB_comment_form_box .submit:hover,
 #HCB_comment_form_box a.btn:hover{
   background-color: #000000;
   transition: background-color 0.2s;
@@ -1075,37 +1075,18 @@ input::-moz-focus-inner {
  * commentについて ↓
  * ------------------------------------------------------------------- */
 
- #HCB_comment_box textarea {
-  height: 42px;
-  border-color: #000000;
-}
-
-#HCB_comment_box textarea {
-  height: 150px !important;
-  border-color: #000000;
-}
 
 #HCB_comment_box blockquote::before {
   display: inline-block;
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: 10px;/*上からの距離*/
+  left: 10px;/*左からの距離*/
   width: 40px;
   height: 40px;
   content: '>>';
   color: #000000;
 }
 
-#HCB_comment_box blockquote:after {
-  display: inline-block;
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  width: 40px;
-  height: 40px;
-  content: '<<';
-  color: #000000;
-}
 
 /* =================================================================== 
  * # additional components
