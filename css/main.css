@@ -920,6 +920,7 @@ select:-webkit-autofill:focus {
  * # buttons
  *
  * ------------------------------------------------------------------- */
+#HCB_comment_form_box .btn,
 .btn,
 button,
 input[type="submit"],
@@ -947,6 +948,7 @@ input[type="button"] {
   border: 0.2rem solid #d3d3d3;
 }
 
+#HCB_comment_form_box .submit:hover,
 .btn:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -991,13 +993,14 @@ input[type="button"].btn--primary:focus {
 
 /* button modifiers
  * ------------------------------------------------- */
+#HCB_comment_form_box .btn,
 .btn.full-width,
 button.full-width {
   width: 100%;
   margin-right: 0;
 }
 
-#HCB_comment_form_box .submit,
+#HCB_comment_form_box .btn,
 .btn--medium,
 button.btn--medium {
   height: 6.4rem !important;
@@ -1039,7 +1042,10 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
+#HCB_comment_form_box .submit:hover{
 
+  color: #ffffff !important;
+}
 
 /* =================================================================== 
  * # additional components
