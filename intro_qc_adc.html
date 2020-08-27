@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>量子コンピュータintro - Scatter Sizumi</title>
+    <meta name="description" content="量子コンピュータの初心者が書いた初心者向けの説明です。どうして、量子コンピュータが早いのかに触れています。TMU・UECアドベントカレンダーで書いたものになります。">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body>
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="index.html">
+                        <img src="images/logo.svg" alt="Homepage">
+                    </a>
+                </div>
+
+                <div class="header__search">
+    
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        
+                </div>  <!-- end header__search -->
+
+                <!-- toggles -->
+                <a href="#0" class="header__search-trigger"></a>
+                <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+            </div> <!-- end header__top -->
+
+            <nav class="header__nav-wrap">
+
+                <ul class="header__nav">
+                    <a href="index.html" title="">Home</a></li>
+                    <li class="has-children">
+                        <a href="#0" title="">technology</a>
+                        <ul class="sub-menu">
+                        <li class="current"><a href="category-qucom.html">量子コンピュータ</a></li>
+                        <li><a href="category.html">julia</a></li>
+                        <li><a href="category.html">Phisics</a></li>
+                        <li><a href="category.html">math</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#0" title="">Social Blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="category.html">Travel Post</a></li>
+                            <li><a href="category.html">WebNovel Post</a></li>
+                            <li><a href="category-other.html">Other Post</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="page-about.html" title="">About</a></li>
+                </ul> <!-- end header__nav -->
+
+                <ul class="header__social">
+                    <li class="ss-twitter">
+                        <a href="https://twitter.com/sizumi_maimu">
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="ss-github">
+                        <a href="#">
+                            <span class="screen-reader-text">github</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav> <!-- end header__nav-wrap -->
+
+            
+
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard">
+
+                    <div class="media-wrap entry__media">
+                        <div class="entry__post-thumb">
+                            <img src="images/quantum/adcal/top.jpg" 
+                                 srcset="images/quantum/adcal/top_small.jpg 640w" sizes="(max-width: 2400px) 100vw, 2000px" alt="">
+                        </div>
+                    </div>
+
+                    <div class="content__page-header entry__header">
+                        <h1 class="display-1 entry__title">
+                            量子コンピュータAdCal
+                        </h1>
+                        <ul class="entry__header-meta">
+                            <li class="date">2019/12/21</li>
+                            <li class="cat-links">
+                                <a href="#0">量子コンピュータ</a>
+                            </li>
+                        </ul>
+                    </div> <!-- end entry__header -->
+
+                    <div class="entry__content">
+
+                        <p class="lead drop-cap">
+                            私はプログラム書くよりも物理現象のほうが興味があり、本屋で量子コンピュータの文字に惹かれて半年。
+                            遅々として進まない勉強だが、このような機会ができたので色々整理します。
+                            おそらく間違い等あると思いますので、そのときは指摘をお願いします。
+                        </p>
+
+                        <p>
+                            追記：一番最初に書いた記事なので、本当に駄文ですね……
+                            画像の引用とかも多く、オリジナリティといった点で微妙ですがお付き合いいただければ幸いです。
+                            内容があんまりにもひどいので、Yao.jlでのエンタングルメントでも作って、0から説明する記事作ります。
+                        </p>
+    
+                        <p>
+                            皆さん量子コンピュータって知っていますか？　
+                            おそらくここにいらっしゃったみなさんならご存知のことでしょう。
+                            まぁ、なんか今のコンピュータよりすごいくらいは知っていると思います。
+                            ここでは、大体下の２つのようなことを話してます。
+                        </p>
+
+                        <i>
+                            <ul>そもそも、本当に量子コンピュータは計算が早いのでしょうか？</ul>
+                            <ul>では、なんで量子コンピュータは計算が早いのでしょうか？</ul>
+                        </i>
+
+                        
+                        <p>
+                            今のコンピュータで演算の早さを決めるのは主にCPUでしょう。
+                            では、量子コンピュータのCPUはなんなのかというと無論量子回路です。
+                        </p>
+
+    
+                        <p>
+                            ふつうのコンピュータ（以降、古典コンピュータと呼ぶ）は電子回路を電圧の強弱を0と1に対応させて、1ビットとしていますね。トランジスタなどを用いて制御しています。
+                        </p>
+
+
+                        <p>
+                            一方で量子コンピュータは、光子の偏光や超伝導素子のスピンの向きとかをいじります。
+                            この自然現象（量子コンピュータは自然現象を操作するので、スパコンよりめちゃくちゃエコ）
+                            でいい感じに0と1を表現します。
+                        </p>
+        
+                        <p>
+                            とりあえず、分かりづらいかもですが、簡略なシュレディンガーの猫で表してみます。
+                        </p>
+
+                        <p><em>
+                            <hr>
+                            1時間で50％の割合で猫が死ぬシステムがあるとしましょう。
+                            さて、1時間後の猫はどうなっているでしょうか。          
+                            <hr>
+                        </em></p>
+
+
+                        <p>
+                            というのがシュレディンガーの猫ですね。1時間後、我々が猫を観測すると、死んでしまった猫 or 生存している猫、2つの状態に決定します。
+                            これをそれぞれ 0と 1にわりあてるわけですね。
+                            この状態を1ビット、量子コンピュータではqubit（キュービット）といい、連続させてqubitを増やしていきます。
+                            ここからが古典コンピュータとの違いです。
+                            この実験では観測する前、猫が死んでいる状態と生きている状態が重なっています。
+                            この意味不明な状態をビットとしてもつことができます。これが重ね合わせの状態ですね。
+                        </p>
+
+                        <p>
+                            この状態で色々演算すればいい感じにいくんじゃね？　というのが量子コンピュータです。
+
+                            実際、この状態で演算することにより古典コンピュータにできないことができます。
+                            0と1があるので、古典コンピュータと同じことができるし、さらに重ね合わせを用いて一部の計算をもっと早くしようということです。
+                        </p>
+
+                        <p>
+                            この状態がどう作用するのかというと、こんな感じです。
+                        </p>
+
+                        <blockquote>
+                        <img src="images/quantum/adcal/quat_intro_ibmq.png">
+                        </blockquote>
+
+                        <p>
+                            これは1qubitの例です。ロボットの状態である白か黒は何度演算しても、白と黒あるいはその重ね合わせのみです。
+                            故にこの演算は1qubitで示すことができます。
+                            時間経過でコインを一度投げ、ロボット白か黒どちらにいくかという実験です。この確率はそれぞれ50％ずつですね。
+                            Tが1ずつ増えるたびに行われるのは、アダマール変換といい、
+                        </p>
+
+                        <p>
+                            \[ H |0〉= \frac{1}{\sqrt{2} } |0〉|0〉 +  \frac{1}{\sqrt{2}}|1〉|1〉 \]
+                        </p>
+                        <p>
+                            \[ H |1〉= \frac{1}{\sqrt{2} } |0〉|0〉 -  \frac{1}{\sqrt{2}}|1〉|1〉 \]
+                        </p>
+
+                        <p>
+                            という変換をします。これは量子ビットを操作しており、CPUでいうゲートを通ったという認識でいけます。 
+                            つまり、このゲートを通ることにより、重ね合わせの状態を作ります
+                        </p>
+
+                        <p>
+                            すると、\( T=2 \)で状態が確定するのがわかります。
+                            前刻の白、すなわち \( |0〉\)のアダマール変換と黒である \( |1〉\)のアダマール変換がそれぞれ、ロボットが黒マスを踏む確率を打ち消してしまいます。これにより、白である($ 0)に確定するわけですね。
+                            次の \( T = 3 \)では、50%、50%ずつの重ね合わせの状態に再び戻ります。
+                        </p>
+
+                        <p>
+                            このようにして、事象に相当する適切な操作を行うことにより、ある計算結果に収束していい感じの計算結果が得られるわけです。
+                            また、この演算を何度も行うことにより、確率そのものを手に入れることもできます。
+                            計算結果が確率分布によって決まるからですね。
+                            古典コンピュータの場合、全事象を演算しなければなりません。
+                            しかし、量子コンピュータは上のようにいい感じ（語彙崩壊）かつ1qubitで計算できますね。
+                            要は、確率事象を一度に全部（並列的）に計算できるわけですね。
+                            これが量子コンピュータの早いと言われる理由の一つです。
+                        </p>
+
+                        <p>
+                            そして、もう一つ早いと言われる所以があります。
+                            それは、量子のエンタングルメントです。
+                            どのような現象かというと、一つの量子ビットの0か1かが決まるともう一方の量子ビットも決まるというもの。
+                            こちらも言葉にすると、どんなこと言ってんだかわけわかりませんね。
+                        </p>
+
+                        <p>
+                            さきほどまでの実験で、宝箱の有無を調べるために、もう一つqubitを追加するとします。
+                            宝箱がない時を\( |0〉\)、ない時を \( ｜1〉\)とします。
+                            すると、初期状態で宝箱がないとすれば、このとき \( |0〉|0〉\)と示すことができます。
+                            （左の第一量子ビットが白黒、第二量子ビットが宝箱の有無を示している。）
+                        </p>
+
+                        <p>
+                            加えて、黒にロボットが向かったときに宝箱を得ることができるとします。
+                            ここから、さきほどのようにコインを投げて、白か黒を決めると、下の図のようになりますね。
+                        </p>
+
+                        <blockquote>
+                        <img src = "images/quantum/adcal/quat_intro_ibmq_2.png">
+                        </blockquote>
+
+                        <p>
+                            長々と言いましたが、何をいいたいかというと、
+                            第一量子ビットか第二量子ビットどちらかを観測すればもう一方の量子ビットも自ずとわかります。
+                            宝箱があったら、第一量子ビットは1。宝箱がなかったら、第二量子ビットは0です。
+                            第一量子ビットの観測結果と第二量子ビットの観測結果がもつれあっていますね。
+                            古典コンピュータだと、複数の入力に対して一つしか返せないですが、
+                            量子コンピュータは2個の入力から2個の出力をします。
+                            それ故にこのようなことができますし、エンタングルメントが発生しているのでより早いという感じです。
+                            これを実際に実装すると、下のような回路になります。
+                        </p>
+
+                        
+                        <img src = "images/quantum/adcal/quat_intro_circuit1.png">
+
+                        <p>
+                            最初はどちらも \( |0〉\)であること（初期状態）がわかります。
+                            Hでアダマール変換、つまりコインを投げた状態の重ね合わせを作ります。
+                            次で謎の橋渡しを行っていますが、これでエンタングルメントを作っています。
+                            そして、最後の黒い検流計のようなもので、量子を観測し値を収束させます。
+                            実際の観測値は下の図のようになりました。
+                        </p>
+
+
+                        <img src = "images/quantum/adcal/quat_intro_circuit_result.png">
+
+                        <p>
+                            どちらもだいたい同じ回数検出できていますし、01と10が観測されていません。
+                        </p>
+
+                        <p>
+                            早いのはだいたいこんな感じの理由です。かなり雑な説明（汗）ですが、大目に見ていただきたい......
+                        </p>
+
+                        <p>
+                            しかし、本当にこれがいろんなことに応用できて、計算が早くなるのでしょうか。
+                            現状はまだであると言わざるを得ないでしょう。先日googleが量子超越性をなしたといわれています。
+                            それでも、今の量子コンピュータにはまだノイズがあります。
+                            今回は単純な実験であったため、信号伝達に誤りはありませんでした。
+                            しかし、その誤りを訂正するには今の量子コンピュータでは不可能です。
+                            それでも、だいぶマシになり結構正しい結果が出るようになりました。
+                            99％くらいはいい結果を出してくれますが、計算機である以上依然としてエラー率は高いでしょう。
+                            それでも、得意計算は古典コンピュータより早いので、さきほどのようにグラフで計算結果の割合を出して、
+                            割合高いものを導出したい結果にして、確率が低い結果はエラーとみなします。
+                        </p>
+
+                        <h2>編集後記</h2>
+                        <p>
+                            とまぁ、量子コンピュータについてある程度は理解していただけたかなと思いたい。
+                            ちょっと時間がなくて疲れてしまったんでこのへんで。
+                            良くない記事を書いてしもうたんで、お気軽に質問どうぞ。
+                        </p>
+
+                        <h2>参考文献・画像引用</h2>
+                        <p><a href = "https://www.ibm.com/blogs/think/jp-ja/ibmq-principle-of-quantum-computer/">「IBM think blog japan」</a> 
+                            <br>
+                            このサイト神なのでこちらをみましょう↑
+                        </p>
+
+                        <p class="entry__tags">
+                            <span>Post Tags</span>
+        
+                            <span class="entry__tag-list">
+                                <a href="category-qucom.html">量子コンピュータ</a>
+                                <a href="#0">教養</a>
+                                <a href="#0">AdventCalendar</a>
+                            </span>
+            
+                        </p>
+                    </div> <!-- end entry content -->
+
+                    <div class="entry__pagenav">
+                        <div class="entry__nav">
+                            <div class="entry__prev">
+                                <a href="about-sizumi.html" rel="prev">
+                                    <span>Previous Post</span>
+                                    About - Scattering Sizumi
+                                </a>
+                            </div>
+                            <div class="entry__next">
+                                <a href="#0" rel="next">
+                                    <span>Next Post</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div> <!-- end entry__pagenav -->
+
+                    <div class="entry__related">
+                        <h3 class="h2">Related Articles</h3>
+
+                    </div> <!-- end entry related -->
+
+                </article> <!-- end column large-full entry-->
+
+
+
+                <div class="comments-wrap">
+
+                    <div class="column large-13 comment-respond">
+
+                        <div id="HCB_comment_box">
+                            <a href="http://www.htmlcommentbox.com">コメント</a>
+                             is loading comments...
+                        </div>
+                        <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+                        <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24oeLnCbVeNBO2hmRxu2Lm30"+"&opts=16862&num=10&ts=1598433146653");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+                        
+                        <!-- end www.htmlcommentbox.com -->
+            
+                </div> <!-- end comments-wrap -->
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Sizumi</span> 
+                        <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
