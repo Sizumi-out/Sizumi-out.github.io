@@ -999,7 +999,7 @@ input[type="button"].btn--primary:focus {
 /* button modifiers
  * ------------------------------------------------- */
 
-#HCB_comment_form_box .btn,
+
 .btn.full-width,
 button.full-width {
   width: 100%;
@@ -1013,7 +1013,7 @@ button.btn--medium {
   line-height: 6rem !important;
 }
 
-#HCB_comment_form_box .submit,
+
 .btn--large,
 button.btn--large {
   height: 6.8rem !important;
@@ -1049,9 +1049,10 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-#HCB_comment_form_box .submit:hover{
+#HCB_comment_form_box .submit{
   color: #ffffff !important;
 }
+
 
 #HCB_comment_form_box a.btn{
   background: none;
@@ -1065,7 +1066,7 @@ input::-moz-focus-inner {
 
 #HCB_comment_form_box a.btn:hover{
   background-color: #000000;
-  transition: background-color 0.2s;
+  transition: background-color 0.3;
   border: 0.2rem solid #000000;
   color: #ffffff !important;
 }
@@ -1082,8 +1083,8 @@ input::-moz-focus-inner {
 #HCB_comment_box blockquote::before {
   display: inline-block;
   position: absolute;
-  top: 40px;/*上からの距離*/
-  left: 40px;/*左からの距離*/
+  top: 20px;/*上からの距離*/
+  left: 30px;/*左からの距離*/
   width: 40px;
   height: 40px;
   content: '>>';
