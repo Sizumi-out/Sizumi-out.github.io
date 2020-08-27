@@ -920,7 +920,9 @@ select:-webkit-autofill:focus {
  * # buttons
  *
  * ------------------------------------------------------------------- */
-#HCB_comment_form_box .btn,
+
+ #HCB_comment_form_box .btn,
+ #HCB_comment_form_box .submit,
 .btn,
 button,
 input[type="submit"],
@@ -948,6 +950,8 @@ input[type="button"] {
   border: 0.2rem solid #d3d3d3;
 }
 
+
+#HCB_comment_form_box .btn,
 #HCB_comment_form_box .submit:hover,
 .btn:hover,
 button:hover,
@@ -993,7 +997,7 @@ input[type="button"].btn--primary:focus {
 
 /* button modifiers
  * ------------------------------------------------- */
-#HCB_comment_form_box .btn,
+
 .btn.full-width,
 button.full-width {
   width: 100%;
@@ -1001,6 +1005,7 @@ button.full-width {
 }
 
 #HCB_comment_form_box .btn,
+#HCB_comment_form_box .submit,
 .btn--medium,
 button.btn--medium {
   height: 6.4rem !important;
@@ -1013,6 +1018,7 @@ button.btn--large {
   line-height: 6.4rem !important;
 }
 
+#HCB_comment_form_box .btn,
 #HCB_comment_form_box .submit,
 .btn--stroke,
 button.btn--stroke {
@@ -1021,7 +1027,6 @@ button.btn--stroke {
   color: #000000;
 }
 
-#HCB_comment_form_box .submit:hover,
 .btn--stroke:hover,
 button.btn--stroke:hover {
   background: #000000 !important;
@@ -1042,9 +1047,24 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-#HCB_comment_form_box .submit:hover{
 
+#HCB_comment_form_box .btn:hover,
+#HCB_comment_form_box .submit:hover{
+  background: #000000 !important;
+  transition: background-color 0.2s;
+  border: 0.2rem solid #000000;
   color: #ffffff !important;
+}
+
+/* =================================================================== 
+ * # ↑コメントのボタン
+ *
+ * 参考：https://www.htmlcommentbox.com/css-guide.html
+ * commentについて ↓
+ * ------------------------------------------------------------------- */
+
+#HCB_comment_box textarea {
+  height:300px;
 }
 
 /* =================================================================== 
