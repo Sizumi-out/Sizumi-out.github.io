@@ -951,7 +951,7 @@ input[type="button"] {
 }
 
 
-
+#HCB_comment_form_box .submit:hover,
 .btn:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -1010,7 +1010,6 @@ button.btn--medium {
   line-height: 6rem !important;
 }
 
-#HCB_comment_form_box .submit
 .btn--large,
 button.btn--large {
   height: 6.8rem !important;
@@ -1044,6 +1043,10 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
+}
+
+#HCB_comment_form_box .submit{
+  color: #ffffff !important;
 }
 
 #HCB_comment_form_box a.btn{
@@ -1089,8 +1092,7 @@ input::-moz-focus-inner {
   left: -20px;
   width: 40px;
   height: 40px;
-  font-family: FontAwesome;
-  content: '\f101';
+  content: '>>';
   color: #000000;
 }
 
@@ -1101,8 +1103,7 @@ input::-moz-focus-inner {
   right: -20px;
   width: 40px;
   height: 40px;
-  font-family: FontAwesome;
-  content: '\f100';
+  content: '<<';
   color: #000000;
 }
 
