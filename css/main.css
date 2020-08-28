@@ -923,7 +923,7 @@ select:-webkit-autofill:focus {
  * ------------------------------------------------------------------- */
 
 #HCB_comment_form_box a.btn,
-#HCB_comment_form_box .submit,
+#HCB_comment_form_box .submit.btn,
 .btn,
 button,
 input[type="submit"],
@@ -952,7 +952,7 @@ input[type="button"] {
 }
 
 
-#HCB_comment_form_box .submit:hover,
+#HCB_comment_form_box .submit.btn:hover,
 .btn:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -1027,7 +1027,7 @@ button.btn--stroke {
   color: #000000;
 }
 
-#HCB_comment_form_box .submit:hover
+#HCB_comment_form_box .submit.btn:hover
 .btn--stroke:hover,
 button.btn--stroke:hover {
   background: #000000 !important;
@@ -1049,9 +1049,8 @@ input::-moz-focus-inner {
 }
 
 
-#HCB_comment_form_box .submit,
+#HCB_comment_form_box .submit.btn,
 #HCB_comment_form_box a.btn{
-  width: 10.0rem;
   background: none;
   border: 0.2rem solid;
   border-color: #000000;
@@ -1060,7 +1059,7 @@ input::-moz-focus-inner {
   line-height: 6rem !important;
 }
 
-#HCB_comment_form_box .submit:hover,
+#HCB_comment_form_box .submit.btn:hover,
 #HCB_comment_form_box a.btn:hover{
   background-color: #000000;
   transition: background-color 0.3;
@@ -1080,8 +1079,8 @@ input::-moz-focus-inner {
 #HCB_comment_box blockquote::before {
   display: inline-block;
   position: absolute;
-  top: 40px;/*上からの距離*/
-  left: 25px;/*左からの距離*/
+  top: 2.0rem;/*上からの距離*/
+  left: 2.0rem;/*左からの距離*/
   width: 40px;
   height: 40px;
   content: '>>';
