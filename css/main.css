@@ -1090,7 +1090,7 @@ input::-moz-focus-inner {
   color: #000000;
 }
 
-#HCB_comment_box blockquote::before {
+#HCB_comment_box blockquote::after {
   display: inline-block;
   position: absolute;
   bottom: auto;/*下からの距離*/
