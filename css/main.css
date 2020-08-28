@@ -750,7 +750,7 @@ input[type="password"],
 textarea,
 select {
   display: block;
-  height: 6.4rem;
+  height: 4.0rem;
   padding: 1.6rem 0 1.5rem;
   border: 0;
   outline: none;
@@ -809,7 +809,7 @@ select {
 }
 
 textarea {
-  min-height: 25.6rem;
+  min-height: 20rem;
 }
 
 input[type="email"]:focus,
@@ -1075,18 +1075,31 @@ input::-moz-focus-inner {
  * commentについて ↓
  * ------------------------------------------------------------------- */
 
+.comments-wrap{
+  background-color: rgb(246, 247, 248);
+}
 
 #HCB_comment_box blockquote::before {
   display: inline-block;
   position: absolute;
-  top: 2.0rem;/*上からの距離*/
-  left: 2.0rem;/*左からの距離*/
+  top: auto;/*上からの距離*/
+  left: 0.5rem;/*左からの距離*/
   width: 40px;
   height: 40px;
   content: '>>';
   color: #000000;
 }
 
+#HCB_comment_box blockquote::before {
+  display: inline-block;
+  position: absolute;
+  bottom: auto;/*下からの距離*/
+  right: 0.5rem;/*右からの距離*/
+  width: 40px;
+  height: 40px;
+  content: '<<';
+  color: #000000;
+}
 
 /* =================================================================== 
  * # additional components
