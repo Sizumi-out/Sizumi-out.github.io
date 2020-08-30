@@ -1,5 +1,3 @@
-<!-- customize labels of htmlcommentbox.com -->
-<script>
 /* This code goes ABOVE the main HTML Comment Box code!
  replace the text in the single quotes below to customize labels.*/
 hcb_user = {
@@ -56,5 +54,3 @@ hcb_user = {
     ON_COMMENT: function(){}, /* Function to call after commenting. */
     RELATIVE_DATES:true /* show dates in the form "X hours ago." etc. */
 };
-</script>
-<!-- done customizing labels of htmlcommentbox.com -->
