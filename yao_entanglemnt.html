@@ -131,8 +131,8 @@
 
                     <div class="media-wrap entry__media">
                         <div class="entry__post-thumb">
-                            <img src="images" 
-                                 srcset="" sizes="(max-width: 2400px) 100vw, 2000px" alt="">
+                            <img src="images/quantum/yao_entanglement/yao_logo-brack.webp"
+                             sizes="(max-width: 1600px) 100vw, 1600px" alt="Yao.jlのロゴ">
                             <!--  ヘッドの画像 -->
                         </div>
                     </div>
@@ -152,8 +152,18 @@
 
                     <div class="entry__content">
 
-                        <p class="lead drop-cap">
-                            鋭意製作中：9月中の公開予定
+                        <h2>目標と必要知識</h2>
+                        <p>　必要知識
+                            <li>アダマール変換（Hゲート）や初歩の量子計算を理解している</li>
+                            <li>量子の重ね合わせがなんとなく分かっている</li>
+                        </p>
+                        <p>　目標
+                            <li>エンタングルメントをなんとなく理解する</li>
+                            <li>Yao.jlのチュートリアルの1を理解する</li>
+                            <li>エンタングルメントをYao.jlで作れる</li>
+                            <br>
+                            エンタングルメントの不可解さの具体的な説明に関しては、いつかできたらと思います。
+                            また、Julia言語は触れたこと無くても差し支えないです。
                         </p>
 
                         <p class="lead drop-cap">
@@ -161,31 +171,127 @@
                             こんにちは。ここではタイトルの通り、
                             <a href="https://julialang.org/">Julia言語</a>の量子計算ライブラリである
                             <a href="https://yaoquantum.org/">Yao.jl</a>のチュートリアルを行いつつ、
-                            2, 3, 4bitの量子エンタングルメントを作ります。
+                            2, 3, 4bitの量子エンタングルメントを作ります。ロゴでかい。
                         </p>
 
                         <p>
                             　ソースコードは<a href="https://github.com/Sizumi-out/Qcomputerstudy/tree/master/entanglement">こちら</a>に保管しております。
-                            適宜お使いください。また、私の実行環境は以下のとおりです。
+                            大したものではありませんが、適宜お使いください。また、私の実行環境は以下のとおりです。
                             <li>Linux mint 20</li>
                             <li>Julia ver1.5.0</li>
                             <li>vscode</li>
                             <small>ほんとは、JunoとかJupyterでやりたかった……</small>
                         </p>
 
+                        <h3>vscodeでJulia言語を動かす</h3>
+                        <p>　<a href="https://julialang.org/downloads/">ここ</a>のリンクから、バイナリ取ってくるだけで最低限のREPLは動きます。
+                            私は、vscodeで動かしているので、vscodeの拡張機能を追加する必要がありました。Julia Language Supportというやつです。
+                            上の編集部分で[Ctrl] + [Enter]を押すと一行ごとにREPLで実行されます。すごい。
+                            Juliaプログラミングクックブックには記載がなかったが、なぜかバイナリにpathを通さないと動かなかった。
+                        </p>
                         <p>
-                            　Julia言語の導入はおすすめリンクの紹介に留めさせていただきます。
-                            また、Julia言語の動作が上手く行かなかった場合は、Python及びGUIの量子計算ライブラリである
+                            　あと、Ubuntuにパッケージとして追加されていました。
+                            <code>
+                                sudo apt install julia
+                            </code>
+                            でいけるようです。
+                        </p>
+
+                        <p>
+                            　Julia言語の動作が上手く行かなかった場合は、Python及びGUIの量子計算ライブラリである
                             <a href="https://blueqat.com/?hl=ja">Blueqat</a>で行うと良いと思います。
                             こちらには詳細なドキュメントもございますので、そちらをご参照されるとわかりやすいと思います。
                         </p>
 
-                        <p>　それでは、Let's えんたんぐるめんと！！　ですの！！！</p>
+                        <p>　それでは、Let's えんたんぐるめんと！　ですの！！！</p>
+
 
                         <h2>量子エンタングルメントとは</h2>
-                        <p></p>
+                        <p>
+                            　とりあえず、wikipediaを見てみましょう。
+                            <blockquote>
+                                量子多体系において現れる、古典確率では説明できない相関やそれに関わる現象
+                            </blockquote>
+                                古典確率……？　なんかいろいろ抽象的。これには続きがあって、量子情報理論においては以下の通り。
+                            <blockquote>
+                                LOCC（局所量子操作及び古典通信）で増加しない多体間の相関
+                                <cite><a href="https://ja.wikipedia.org/wiki/%E9%87%8F%E5%AD%90%E3%82%82%E3%81%A4%E3%82%8C">
+                                    wikipedia「量子もつれ」</a>閲覧日：2020/8/31
+                                </cite>
+                            </blockquote>
+                                
+                                なるほど、全くわからんというわけで、「なんらかの相関があるのだな」
+                                ということを念頭にして考えていきましょう。
+                        </p>
 
-                        <h2>2qubitで量子エンタングルメントを作る</h3>
+                        <h2>2qubitで量子エンタングルメントを作る</h2>
+
+                        <p>
+                            　量子エンタングルメントでよく言われるのは、
+                            片方の量子ビットがわかるともう片方の量子ビットも100%わかる、ということです。
+                            すごい不思議な現象ですね。
+                        </p>
+
+                        <p>
+                            　日常生活に例えると、2つのコインがありランダムでコインの表裏が決定するとき、
+                            片方分かった瞬間にもう片方もわかってしまう、ということです。
+                            予知能力みたいですが、これは確かに強い相関といえます。
+                        </p>
+
+                        <p>
+                            　なんとなくイメージがつかめたところで、量子回路を見ていきましょう。
+                            まず、2量子ビットで単純なエンタングルメントであるベル状態を形成する回路を見てみます。
+                        </p>
+
+                        <img src="images/quantum/yao_entanglement/Bell_circuit.svg">
+
+                        <p>
+                            　初期状態はどちらも \( |0 \rangle \) となっています。
+                            状態Aでは第一量子ビットにHゲートを作用させ、状態Bでは第二量子ビットではCNOTゲートを作用させています。
+                            それでは、早速コード書いてどのような結果が観測できるのか、確認しましょう。
+                        </p>
+
+                        <h3>ベル状態のコードを書こう！</h3>
+                        <p>
+                            　必要なパッケージをダウンロードし、ライブラリを準備します。
+<pre><code>
+] add Plots, Yao, Stasbase
+
+using Plots
+using Yao
+using Statsbase
+</code></pre>
+                            初回はプリコンパイルも行うので、時間がかかります。
+                            REPLで[Backspace]を押すと、デフォルトのモードに戻ります。
+                        </p>
+
+                        <p>
+                             
+                            　はじめに回路を作っていきます。
+<pre><code>
+n = 2
+Bell_circuit = chain(
+    n,
+    put(2=>H),
+    control(2, 1=>X),
+)
+</code></pre>
+                            nは量子ビット数ですね。2つ目の構造体のようなもので実際に回路を設計していきます。
+                            Yao.jlではゲートの設置の関数やcircuit関数のはじめの引数にUInt型、すなわち自然数をおくことで量子ビット数を設定することができます。
+                            他にも、量子ビット数を設定することは可能ですが、こちらも後日触れます。
+                        </p>
+
+                        <p>
+                            　続いて、ゲートを設置していきます。ゲートの設置はput関数で行います。
+                            <code>put(2=>H)</code>は第二量子ビットにアダマール変換Hを作用させるということになります。アダマール変換は
+                            \[ H:= \frac{1}{\sqrt{2}} \left[ 
+                                \begin{array}{ccc}
+                                    1 & 1 \\
+                                    1 & -1 
+                                \end{array} 
+                            \right] \]
+                        </p>
+
 
 
                         <h3>数式で理解する</h3>
@@ -216,7 +322,7 @@
                             <div class="entry__next">
                                 <a href="#0" rel="next">
                                     <span>Next Post</span>
-                                    
+
                                 </a>
                             </div>
                         </div>
