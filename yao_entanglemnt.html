@@ -6,7 +6,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title> Yao.jlで量子もつれを学ぶ - Scatter Sizumi</title>
+    <title> Yao.jlで量子もつれを学ぶ(前編) - Scatter Sizumi</title>
     <meta name="description" content="Yao.jlで量子もつれ / エンタングルメントを学びます。猫でもわかるようにかきました。Juliaのvscodeでの利用についても触れています。">
 
     <!-- mobile specific metas
@@ -138,7 +138,7 @@
 
                     <div class="content__page-header entry__header">
                         <h1 class="display-1 entry__title">
-                            Yao.jlで量子エンタングルメントを理解したい
+                            Yao.jlで量子エンタングルメントを理解したい（前編）
                         </h1>
                         <ul class="entry__header-meta">
                             <li class="date">2020/9/xx</li>
@@ -374,7 +374,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                         <p>
                             　一行目は、第一引数の初期状態のビットを回路<code>Bell_circuit</code>に適用させるということです。
                             この行事体はなくても動作します。関数<code>zero_state(n)</code>は量子ビット\( |0 \rangle \)をn個生成するものです。
-                            結果を得るには二行目のようにする必要があります。<code>|></code>は左を右に代入するもので、パイプ演算子といいます。
+                            結果を得るには二行目のようにする必要があります。<code>A |> B</code>はAをBに代入するもので、パイプ演算子といいます。
                             measureは文字通り、量子ビットを測定して古典ビットに変換する関数ですね。
                             nshotsで何回シミュレートするか明示します。今回は1000回です。
                         </p>
@@ -386,40 +386,84 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             <code>hist.weights, legend =:none</code>はそれぞれ、「変数histの各ビット列の出現回数」、「ラベルなし」を示しています。
                         </p>
 
-                        <p>
-                            　先程のコードを実行すると、以下のようなヒストグラムが得られると思います。
                             <img src ="images/quantum/yao_entanglement/yao_entngl_1.svg">
+                        <p>
+                            　先程のコードを実行すると、上のようなヒストグラムが得られると思います。 
                             横軸の目盛りはそれぞれ、\( 00, 01, 10, 00 \)の量子ビット列を意味しているので、
                             結果は量子ビット列\( 00, 11 \)が大体500回ずつでたことになります。
                         </p>
 
                         <p>
                             　量子の観測はランダムな確率なはずなのに、この回路だと\( 00, 11 \)の2つしか観測できません。
-                            また、強固な相関である、片方の量子ビットが0ならもう片方も0、1でもまた然り、を満たしています。
+                            また、強固な相関である、片方の量子ビットが0ならもう片方も0、1でもまた然り、を満たしている感じがしますね。
                             次節ではこれを数式で考えていきます。
                         </p>
 
                         <h3 id="calc">数式で理解する</h3>
                         
-                        <p>　さて、ゲートがどのような行列なのか、結果がどうなったのかを踏まえて考察していきましょう。</p>
-
-                        <p>
-                            　「3qubit, 4qubitと拡張していく」をしたかったのですが、長くなったのでこのあたりで一旦切ろうと思います。
-
+                        <p>　さて、ゲートがどのような行列なのか、結果がどうなったのかを踏まえて考察していきましょう。
+                            　回路は図で示すと以下のようなものでした。
+                            <img src="images/quantum/yao_entanglement/Bell_circuit.svg">
                         </p>
 
+                        <p>
+                            　初期の状態は\( |00 \rangle \)ですね。図の状態Aでは第一量子ビットである\( |0 \rangle \)にHを作用さています。
+                            これは先程のHの定義に基づくと、
+\[ \begin{eqnarray*}
+    H |0 \rangle \otimes |0 \rangle &=& \frac{1}{\sqrt{2}} (|0 \rangle + |1 \rangle ) \otimes |0 \rangle \\
+        &=& \frac{1}{\sqrt{2}}(|00 \rangle + |10 \rangle )
+\end{eqnarray*} \]
+                            となります。この状態は \( |00 \rangle , |01 \rangle \)の2つの状態の重ね合わせができていると言えます。
+                            現状は、先程の結果のような強い相関はありません。
+                        </p>
+
+                        <p>
+                            　続いて、状態Bを見てみましょう。
+                            CNOTゲートは制御ビットが\( |1 \rangle \)ならば、標的ビットにXゲートを作用させるものでした。
+                            先程の計算結果を元にCNOTを作用させると、
+\[
+    \frac{1}{\sqrt{2}}(|00 \rangle + |10 \rangle ) ==CNOT=> \frac{1}{\sqrt{2}}(|00 \rangle + |11 \rangle ) 
+\]
+                            重なっている量子ビットの一つである \( |00 \rangle \)は第一量子ビットが0なので、何も変化しません。
+                            一方の\( |10 \rangle \)は第一量子ビットが1なので、第二量子ビットの0にNOTゲートが作用され、1になります。
+                        </p>
+
+                        <p>
+                            　よって、計算結果からも\( |00 \rangle, |11 \rangle \)それぞれの可能性が\( \frac{1}{\sqrt{2}} \)の二乗、
+                            \( \frac{1}{2})ということが導き出されました。
+                            また、片方で0が観測されたらもう片方の量子ビットも0、片方で1が観測されたらもう片方の量子ビットも1、というふうにもつれているのがわかります。
+                        </p>
+                        
+                        <p>
+                            　量子コンピュータの計算速度が早いと言われる根拠の一端がここにあります。
+                            このような状況の判別が古典コンピュータだと2^2で4回であるのに対し、こちらは一度で状況を全て示せるということになるからです。
+                            このベル状態自体はあまりに単純で計算量も少ないので、実社会には使えませんが、わかりやすいので良く量子計算の入門書にでてきます。
+                        </p>
+
+                        <h2 id = "after">あとがき・編集後記</h2>
+                        <p>
+                            　「3qubit, 4qubitと拡張していく」をしたかったのですが、長くなったのでこのあたりで一旦切ろうと思います。
+                            コード自体はさきほどのコードを保管した場所にあるので、ぜひ取り組んでみてください。
+                            それらの数式や説明、後編は近い内にできたらと思います。
+                        </p>
+                        
+                        <p>
+                            　ちょっと興味ある中学生でも理解できるように書いたつもりですが、いささか冗長な感じが否めなせんね。
+                            少しでも皆様の参考になれば嬉しいです。次回は京都に安く言った話でも書くかもしれません。
+                            その近いうちに今回の後編を書く予定です。それでは。
+                        </p>
 
                         <h2>参考文献</h2>
-
+                        <a href="https://tutorials.yaoquantum.org/dev/generated/quick-start/1.prepare-ghz-state/">yao.jl tutorial</a>
 
 
                         <p class="entry__tags">
                             <span>Post Tags</span>
         
                             <span class="entry__tag-list">
-                                <a href="category-qucom.html">量子コンピュータ</a>
+                                <a href="category-qucom">量子コンピュータ</a>
                                 <a href="#0">Yao.jl</a>
-                                <a href="category-julia.html">Julia</a>
+                                <a href="category-julia">Julia</a>
                                 <a href="#0">入門</a>
                             </span>
 
@@ -429,7 +473,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                     <div class="entry__pagenav">
                         <div class="entry__nav">
                             <div class="entry__prev">
-                                <a href="intro_qc_adc.html" rel="prev">
+                                <a href="intro_qc_adc" rel="prev">
                                     <span>Previous Post</span>
                                     量子コンピュータ入門 - なぜ早いのか
                                 </a>
@@ -445,6 +489,14 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 
                     <div class="entry__related">
                         <h3 class="h2">Related Articles</h3>
+                        <ul class="related">
+                            <li class="related__item">
+                                <a href="intro_qc_adc" class="related__link">
+                                    <img src="images/quantum/adcal/front-sr-600.webp" alt="">
+                                </a>
+                                <h5 class="related__post-title">量子コンピュータはなぜ早いのか</h5>
+                            </li>
+                        </ul>
 
                     </div> <!-- end entry related -->
 
