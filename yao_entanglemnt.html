@@ -6,7 +6,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title> Yao.jlで量子もつれを学ぶ(前編) - Scatter Sizumi</title>
+    <title>Yao.jlで量子もつれを学ぶ(前編) - Scatter Sizumi</title>
     <meta name="description" content="Yao.jlで量子もつれ / エンタングルメントを学びます。猫でもわかるようにかきました。Juliaのvscodeでの利用についても触れています。">
 
     <!-- mobile specific metas
@@ -85,8 +85,8 @@
                     <li class="has-children">
                         <a href="#0" title="">technology</a>
                         <ul class="sub-menu">
-                            <li><a href="category-qucom">量子コンピュータ</a></li>
-                            <li><a href="category-julia">julia</a></li>
+                            <li class ="current"><a href="category-qucom">量子コンピュータ</a></li>
+                            <li class ="current"><a href="category-julia">julia</a></li>
                             <li><a href="category">Phisics</a></li>
                             <li><a href="category">math</a></li>
                         </ul>
@@ -143,8 +143,8 @@
                         <ul class="entry__header-meta">
                             <li class="date">2020/9/xx</li>
                             <li class="cat-links">
-                                <a href="category-qucom.html">量子コンピュータ</a>
-                                <a href="category-julia.html">Julia</a>
+                                <a href="category-qucom">量子コンピュータ</a>
+                                <a href="category-julia">Julia</a>
                             </li>
                         </ul>
                     </div> <!-- end entry__header -->
@@ -185,10 +185,15 @@
 
                         <h2>目次</h2>
                         <ol>
-                            <li></li>
+                            <li><a href="#julia">Juliaを動かす。</a></li>
+                            <li><a href="#intro">量子エンタングルメントとは</a></li>
+                            <li><a href="#gate">使用するゲート</a></li>
+                            <li><a href ="#make">2qubitで量子エンタングルメントを作る</a></li>
+                            <li><a href=#calc>数式で理解する</a></li>
+                            <li><a href=#after>あとがき</a></li>
                         </ol>
 
-                        <h3>vscodeでJulia言語を動かす</h3>
+                        <h3 id ="julia">vscodeでJulia言語を動かす</h3>
                         <p>　<a href="https://julialang.org/downloads/">ここ</a>のリンクから、バイナリ取ってくるだけで最低限のREPLは動きます。
                             私は、vscodeで動かしているので、vscodeの拡張機能を追加する必要がありました。Julia Language Supportというやつです。
                             上の編集部分で[Ctrl] + [Enter]を押すと一行ごとにREPLで実行されます。すごい。
@@ -288,7 +293,7 @@
                             それでは、早速コード書いてどのような結果が観測できるのか、確認しましょう。
                         </p>
 
-                        <h3 id ="program">ベル状態のコードを書こう！</h3>
+                        <h3>ベル状態のコードを書こう！</h3>
                         <p>
                             　必要なパッケージをダウンロードし、ライブラリを準備します。
 <pre><code>] add Plots, Yao, Stasbase
@@ -438,9 +443,11 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             　量子コンピュータの計算速度が早いと言われる根拠の一端がここにあります。
                             このような状況の判別が古典コンピュータだと2^2で4回であるのに対し、こちらは一度で状況を全て示せるということになるからです。
                             このベル状態自体はあまりに単純で計算量も少ないので、実社会には使えませんが、わかりやすいので良く量子計算の入門書にでてきます。
+                            今回のは相関の一例という認識が適切でしょうか。
+                            様々なもつれがありますが、いろいろなアルゴリズムを考える中であんまり意識すること少ない気がします。
                         </p>
 
-                        <h2 id = "after">あとがき・編集後記</h2>
+                        <h2 id = "after">あとがき</h2>
                         <p>
                             　「3qubit, 4qubitと拡張していく」をしたかったのですが、長くなったのでこのあたりで一旦切ろうと思います。
                             コード自体はさきほどのコードを保管した場所にあるので、ぜひ取り組んでみてください。
@@ -486,19 +493,6 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             </div>
                         </div>
                     </div> <!-- end entry__pagenav -->
-
-                    <div class="entry__related">
-                        <h3 class="h2">Related Articles</h3>
-                        <ul class="related">
-                            <li class="related__item">
-                                <a href="intro_qc_adc" class="related__link">
-                                    <img src="images/quantum/adcal/front-sr-600.webp" alt="">
-                                </a>
-                                <h5 class="related__post-title">量子コンピュータはなぜ早いのか</h5>
-                            </li>
-                        </ul>
-
-                    </div> <!-- end entry related -->
 
                 </article> <!-- end column large-full entry-->
 
