@@ -428,7 +428,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             CNOTゲートは制御ビットが\( |1 \rangle \)ならば、標的ビットにXゲートを作用させるものでした。
                             先程の計算結果を元にCNOTを作用させると、
 \[
-    \frac{1}{\sqrt{2}}(|00 \rangle + |10 \rangle ) ==CNOT=> \frac{1}{\sqrt{2}}(|00 \rangle + |11 \rangle ) 
+    \frac{1}{\sqrt{2}}(|00 \rangle + |10 \rangle ) \xrightarrow{CNOT} \frac{1}{\sqrt{2}}(|00 \rangle + |11 \rangle ) 
 \]
                             重なっている量子ビットの一つである \( |00 \rangle \)は第一量子ビットが0なので、何も変化しません。
                             一方の\( |10 \rangle \)は第一量子ビットが1なので、第二量子ビットの0にNOTゲートが作用され、1になります。
@@ -436,7 +436,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 
                         <p>
                             　よって、計算結果からも\( |00 \rangle, |11 \rangle \)それぞれの可能性が\( \frac{1}{\sqrt{2}} \)の二乗、
-                            \( \frac{1}{2})ということが導き出されました。
+                            \( \frac{1}{2} \)ということが導き出されました。
                             また、片方で0が観測されたらもう片方の量子ビットも0、片方で1が観測されたらもう片方の量子ビットも1、というふうにもつれているのがわかります。
                         </p>
                         
