@@ -191,7 +191,6 @@ GHZ3_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 
                         <h2>数式で見てみる</h2>
 
-                        <h3>　量子情報科学的に計算する</h3>
                         <p>
                             　まず、ブラケットを用いて計算してみます。とはいえ、ほとんど前編のベル状態と変わりません。
                             初期状態は\(|000 \rangle \)であり、状態Aでは最上位ビット（一番左）にHゲートを作用しています。計算すると、
@@ -276,21 +275,19 @@ GHZ4_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             ~~~ = \frac{1}{\sqrt{2^3}} (|10 \rangle + |11 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle)
                             \]
                             となります。イコールのあとの式は、次のCNOTのために整理しました。
-                            \() \frac{1}{\sqrt{2}} \)を前にもってきて、第3、4量子ビットを展開した形です。
+                            \( \frac{1}{\sqrt{2}} \)を前にもってきて、第3、4量子ビットを展開した形です。
                         </p>
 
                         <p>
                             　続いて、<code>control(2, 1=>X),control(4, 3=>X)</code>の2つを作用させていきます。
-                            これを図で示すと、以下のとおりです。
+                            これを図解すると、以下のとおりです。矢印の方向に制御ビット→標的ビットとなっています。
                             <img src="images/quantum/yao_entanglement/cal_resul01.svg">
                             よって、計算結果は
                             \[ \frac{1}{\sqrt{2^3}} (|10 \rangle + |11 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle) \]
                             \[ \xrightarrow{CNOT(2,1),CNOT(4,3)}
-                            \frac{1}{\sqrt{2^3}} (|10 \rangle + |01 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle)
-                            \] 
-                            \[
-                            = \frac{1}{\sqrt{2^3}} \big( (|10 \rangle + |01 \rangle)(|00 \rangle + |01 \rangle) + (|10 \rangle + |01 \rangle)(|10 \rangle + |11 \rangle) \big)
-                            \]
+                            \frac{1}{\sqrt{2^3}} (|10 \rangle + |01 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle) \] 
+                            \[ = \frac{1}{\sqrt{2^3}} \Bigl( (|10 \rangle + |01 \rangle)(|00 \rangle + |01 \rangle) + (|10 \rangle + |01 \rangle)(|10 \rangle + |11 \rangle) \Bigr) \]
+                            
                             となります。1回目の計算結果では2つ目のカッコの内部は変わりません。
                             最後の式では、先程のように次のための結果の整理をしています。
                             1つ目の()を第三量子ビットに合わせて、展開した形です。
@@ -320,7 +317,7 @@ GHZ4_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             ここの計算が上手く行かなくて、行列でゴリ押しました。誰か良い計算教えてください。以下の通りです。
                         </p>
 
-                        <p>　2量子ビットでに作用するHゲートを求めます。
+                        <p>　2量子ビットに作用するHゲートを求めます。
                             \[ H \otimes H = \frac{1}{\sqrt{2}} \pmatrix{1 & 1 \\ 1 & -1} \otimes \frac{1}{\sqrt{2}} \pmatrix{1 & 1 \\ 1 & -1} \]
                             \[= \frac{1}{2} \pmatrix{1 & 1 & 1 & 1 \\ 
                                                     1 & -1 & 1 & -1 \\
