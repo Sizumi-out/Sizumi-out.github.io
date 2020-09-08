@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="ja">
 <head>
 
 
@@ -250,6 +250,7 @@
         = \frac{1}{\sqrt{2}} \pmatrix{1 \\ -1} = \frac{1}{\sqrt{2}} (|0 \rangle - |1 \rangle)
 \]
                             といった形になり、0と1が50%ずつ観測されるまさに量子！　シュレディンガーの猫！　って感じのゲートです。
+                            このHゲートを作用させた結果はとても重要でよくでてきますので、結果だけでも覚えておきましょう。
                         </p>
 
                         <p>
@@ -357,7 +358,7 @@ Bell_circuit = chain(
                         </p>
 
                         <p>
-                            　ということは今回の場合、<code>control(1, 2=>X)</code>というのはCNOTを指していることになりますね。行列で示すと、
+                            　ということは今回の場合、<code>control(1, 2=>X)</code>というのはCNOTを指していることになりますね。これを行列で示すと、
                             \[ CNOT  = \pmatrix{1 & 0 & 0 & 0 \\
                                                 0 & 1 & 0 & 0 \\
                                                 0 & 0 & 0 & 1 \\
@@ -486,9 +487,9 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                                 </a>
                             </div>
                             <div class="entry__next">
-                                <a href="#0" rel="next">
+                                <a href="yao_entanglemnt2" rel="next">
                                     <span>Next Post</span>
-
+                                    Yao.jlで量子もつれを学ぶ(後編)
                                 </a>
                             </div>
                         </div>

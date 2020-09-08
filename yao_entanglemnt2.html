@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="ja">
 <head>
 
 
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title> Yao.jlで量子もつれを学ぶ(前編) - Scatter Sizumi </title>
-    <meta name="description" content="">
+    <title> Yao.jlで量子もつれを学ぶ(後編) - Scatter Sizumi </title>
+    <meta name="description" content="Yao.jlで量子もつれ / エンタングルメントを学びます。猫でもわかるようにかきました。">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -191,9 +191,36 @@ GHZ3_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 
                         <h2>数式で見てみる</h2>
 
+                        <h3>　量子情報科学的に計算する</h3>
+                        <p>
+                            　まず、ブラケットを用いて計算してみます。とはいえ、ほとんど前編のベル状態と変わりません。
+                            初期状態は\(|000 \rangle \)であり、状態Aでは最上位ビット（一番左）にHゲートを作用しています。計算すると、
+
+                            \[ |000 \rangle \xrightarrow{H_1} \frac{1}{ \sqrt{2}}(|0 \rangle + |1 \rangle) |00 \rangle \]
+
+                            となります。\( H_1 \)は第一量子ビットにH作用という意味を明示するために添え字をつけましたが、他ではしていない書き方だと思います。
+                        </p>
+
+                        <p>
+                            　状態Bでは前編と同じようにCNOTゲートを作用させています。
+                            第一量子ビットが1だったら、第二量子ビットにXゲートを作用させるものですね。
+                            よって、計算結果は
+                            \[ \frac{1}{ \sqrt{2}}(|0 \rangle + |1 \rangle) |00 \rangle \xrightarrow{CNOT_{1,2}}
+                            \frac{1}{ \sqrt{2}}(|00 \rangle + |11 \rangle) |0 \rangle \]
+                            となります。
+                        </p>
+
+                        <p>
+                            　状態CでもCNOTをBのように作用させます。Bと全く同じような計算をすることがわかると思います。
+                            したがって、
+                            \[ \frac{1}{ \sqrt{2}}(|00 \rangle + |11 \rangle) |0 \rangle \xrightarrow{CNOT_{2,3}}
+                            \frac{1}{ \sqrt{2}}(|000 \rangle + |111 \rangle)\]
+                            となり、グラフの結果は然りということとなりました。
+                        </p>
+
                         <h2>4量子ビットもエンタングルメントしてみる</h2>
                         <p>
-                            　さて、4量子ビットでも同じように階段状にするだけで作れますが、ここは<a href>Yao.jlのチュートリアル</a>に基づいて進めていきましょう。
+                            　さて、4量子ビットでも同じように階段状にするだけで作れますが、ここは<a href = "https://tutorials.yaoquantum.org/dev/generated/quick-start/1.prepare-ghz-state/">Yao.jlのチュートリアル</a>に基づいて進めていきましょう。
                             コードと結果は以下のとおりです。図は省略させていただきます。
                         </p>
 <pre><code>GHZ_4circuit = chain(
@@ -223,10 +250,134 @@ GHZ4_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             これは、タプル<code>(x, y)</code>や上のように<code>1:4</code>、すなわち1から4のrange型でも大丈夫です。
                         </p>
 
-                        <h2>きついかもだが、計算してみた</h2>
+                        <p>
+                            　結果も3量子ビットのときと同じようになっていますね。
+                        </p>
+
+                        <h2>計算してみた</h2>
+                        <p>
+                            　そこそこ式が長くなった……途中上手く行かなくなって、行列とテンソル積を使ってしまったので、読み飛ばしても問題ないと思います。
+                            むしろ、3量子ビットでやった階段方式でn量子ビットで計算できるようにするのが、重要だと思います。
+                            ただ、下のようにに計算すると、量子計算の練習になるので時間があれば取り組んでみてください。
+                            この計算するくらいなら、他の量子アルゴリズムやったほうが良いとは思いますが。計算が下のような感じです。
+                        </p>
+
+                        <p>
+                            　初期状態は\( |0000 \rangle \)です。
+                            はじめに第一量子ビットにXを作用させているため反転して、\( |1000 \rangle \)となります。
+                            つづいて、Hゲートを第2から4量子ビットに作用させています。よって、
+                            \[ |1000 \rangle \xrightarrow{H_{2,3,4}}
+                            |1 \rangle \otimes \frac{1}{ \sqrt{2}}(|0 \rangle + |1 \rangle) \otimes \frac{1}{ \sqrt{2}}(|0 \rangle + |1 \rangle) \otimes \frac{1}{ \sqrt{2}}(|0 \rangle + |1 \rangle)
+                            \]
+                            \[
+                            ~~~ = \frac{1}{\sqrt{2^3}} |1 \rangle (|0 \rangle + |1 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle)
+                            \]
+                            \[
+                            ~~~ = \frac{1}{\sqrt{2^3}} (|10 \rangle + |11 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle)
+                            \]
+                            となります。イコールのあとの式は、次のCNOTのために整理しました。
+                            \() \frac{1}{\sqrt{2}} \)を前にもってきて、第3、4量子ビットを展開した形です。
+                        </p>
+
+                        <p>
+                            　続いて、<code>control(2, 1=>X),control(4, 3=>X)</code>の2つを作用させていきます。
+                            これを図で示すと、以下のとおりです。
+                            <img src="images/quantum/yao_entanglement/cal_resul01.svg">
+                            よって、計算結果は
+                            \[ \frac{1}{\sqrt{2^3}} (|10 \rangle + |11 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle) \]
+                            \[ \xrightarrow{CNOT(2,1),CNOT(4,3)}
+                            \frac{1}{\sqrt{2^3}} (|10 \rangle + |01 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle)
+                            \] 
+                            \[
+                            = \frac{1}{\sqrt{2^3}} \big( (|10 \rangle + |01 \rangle)(|00 \rangle + |01 \rangle) + (|10 \rangle + |01 \rangle)(|10 \rangle + |11 \rangle) \big)
+                            \]
+                            となります。1回目の計算結果では2つ目のカッコの内部は変わりません。
+                            最後の式では、先程のように次のための結果の整理をしています。
+                            1つ目の()を第三量子ビットに合わせて、展開した形です。
+                        </p>
+
+                        <p>
+                            　さらに、CNOT(3,1)を作用させると、
+                            \[
+                            \xrightarrow{CNOT(3,1)} \frac{1}{\sqrt{2^3}} \big( (|10 \rangle + |01 \rangle)(|00 \rangle + |01 \rangle) + (|00 \rangle + |11 \rangle)(|10 \rangle + |11 \rangle) \big)
+                            \]
+                            となります。第二項の一つ目の()内のビットが変わっています。
+                        </p>
+
+                        <p>
+                            　そして、CNOT(3,4)を作用させると、
+                            \[
+                            \xrightarrow{CNOT(3,4)} 
+                            \frac{1}{\sqrt{2^3}} \big( (|10 \rangle + |01 \rangle)(|00 \rangle + |11 \rangle) + (|00 \rangle + |11 \rangle)(|10 \rangle + |01 \rangle) \big)
+                            \]
+                            となり、なんか綺麗な形がでてきます。
+                        </p>
+
+                        <p>
+                            　最後に \( H^{\otimes 4} \)を作用させます。
+                            このHの右上についてるやつは同じものをテンソル積するときに用います。
+                            量子アルゴリズムでは、回路全体にHを作用させることが多いため、\( H^{\otimes n} \)というのがよくでてきます。
+                            ここの計算が上手く行かなくて、行列でゴリ押しました。誰か良い計算教えてください。以下の通りです。
+                        </p>
+
+                        <p>　2量子ビットでに作用するHゲートを求めます。
+                            \[ H \otimes H = \frac{1}{\sqrt{2}} \pmatrix{1 & 1 \\ 1 & -1} \otimes \frac{1}{\sqrt{2}} \pmatrix{1 & 1 \\ 1 & -1} \]
+                            \[= \frac{1}{2} \pmatrix{1 & 1 & 1 & 1 \\ 
+                                                    1 & -1 & 1 & -1 \\
+                                                    1 & 1 & -1 & -1 \\
+                                                    1 & -1 & -1 & 1 } \]
+                        </p>
+
+                        <p>　最後の形は\( (|00 \rangle + |11 \rangle), (|10 \rangle + |01 \rangle) \)の2つのみでした。
+                            したがって、この2つに対して先程導出したHを作用した結果を求めれば良いことがわかります。よって、
+                            \[ H^{\otimes 2} (|00 \rangle + |11 \rangle) = \frac{1}{2}\pmatrix{1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 } 
+                            \Biggl( \pmatrix{1 \\ 0 \\ 0 \\ 0} + \pmatrix{0 \\ 0 \\ 0 \\ 1} \Biggr) \]
+                            \[ = \frac{1}{2}\pmatrix{1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 } \pmatrix{1 \\ 0 \\ 0 \\ 1}
+                            = \frac{1}{2} \pmatrix{2 \\ 0 \\ 0 \\ 2} = |00 \rangle + |11 \rangle \]
+
+                            　\( |10 \rangle + |01 \rangle \)でも同様に計算します。
+                            \[ H^{\otimes 2} (|10 \rangle + |01 \rangle) = \frac{1}{2}\pmatrix{1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 } 
+                            \Biggl( \pmatrix{0 \\ 0 \\ 1 \\ 0} + \pmatrix{0 \\ 1 \\ 0 \\ 0} \Biggr) \]
+                            \[ = \frac{1}{2}\pmatrix{1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & -1 & 1 } \pmatrix{0 \\ 1 \\ 1 \\ 0}
+                            = \frac{1}{2} \pmatrix{2 \\ 0 \\ 0 \\ -2} = |00 \rangle  |11 \rangle \]
+                        </p>
+
+                        <p>
+                            　以上の2つの結果をもとに考えると、
+                            \[
+                            \frac{1}{\sqrt{2^3}} \big( (|10 \rangle + |01 \rangle)(|00 \rangle + |11 \rangle) + (|00 \rangle + |11 \rangle)(|10 \rangle + |01 \rangle) \big)
+                            \]
+                            \[ \xrightarrow{H^{\otimes 4}}
+                            \frac{1}{\sqrt{2^3}} \big( (|00 \rangle - |11 \rangle)(|00 \rangle + |11 \rangle) + (|00 \rangle + |11 \rangle)(|00 \rangle - |11 \rangle) \big)
+                            \]
+                            \[ = \frac{1}{\sqrt{2^3}} \big( |0000 \rangle - |1111 \rangle + |0000 \rangle - |1111 \rangle \big) = \frac{1}{\sqrt{2}}(|0000 \rangle - |1111 \rangle) \]
+                            となり、プログラムで実行したとおりの結果が得られることがわかります。
+                            また、CNOTを階段状に構成するのと異なり、\(|1111 \rangle \)の位相が逆なのがわかります。
+                        </p>
+
+                        <h2>これまでのグラフを保存したい</h2>
+                        <p>
+                            　前編も含めた全てのコードを実行している方は、以下の通りのコードを実行すると、これまでの結果を一つの画像にして保存できます。
+<pre><code>A = plot(Bell_graff, GHZ3_graff, GHZ4_graff, legend =:none)
+
+path_png = "program/julia_code/plot_practice/entanglement.png" #保存したいフォルダとファイル名
+savefig(A, path_png)
+</code></pre>
+                        
+                            変数<code>path_png</code>でホームディレクトリを基準とした相対パスで画像ファイル名を決めます。
+                            フォーマットはpngの他、svgなども対応しています。
+                        </p>
+
+                        <h2>あとがき</h2>
+                        <p>
+                            　量子計算は行列を用いるより、ブラケットを用いたほうが良いでしょう。
+                            ただ、それは暗記の下で成立しているので、ときには行列を使いそれを導く必要がありそうです。
+                            あとなんで、Mathjax改行認識しないの。頼む、\eqarrayが使えないからどうにしてくれ。
+                            次は京都の旅行の話書いたら、QFT書きます。それでは。
+                        </p>
 
                         <p class="entry__tags">
-                            <span>Post Tags</span>        
+                            <span>Post Tags</span>
                             <span class="entry__tag-list">
                                 <a href="category-qucom">量子コンピュータ</a>
                                 <a href="#0">Yao.jl</a>
@@ -243,6 +394,12 @@ GHZ4_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                                 <a href="yao_entanglemnt" rel="prev">
                                     <span>Previous Post</span>
                                     Yao.jlで量子もつれを学ぶ(前編)
+                                </a>
+                            </div>
+                            <div class="entry__next">
+                                <a href="#0" rel="next">
+                                    <span>Next Post</span>
+                                    予告：京都旅行にいったお話
                                 </a>
                             </div>
                         </div>
