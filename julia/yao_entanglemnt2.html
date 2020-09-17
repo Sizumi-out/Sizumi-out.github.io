@@ -15,21 +15,21 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/vendor.css">
+    <link rel="stylesheet" href="../css/main.css">
 
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <script src="../js/modernizr.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- favicons
     ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
 
 </head>
 
@@ -54,7 +54,7 @@
             <div class="header__top">
                 <div class="header__logo">
                     <a class="site-logo" href="https://sizumi.net">
-                        <img src="images/logo.svg" alt="Homepage">
+                        <img src="../images/logo.svg" alt="Homepage">
                     </a>
                 </div>
 
@@ -81,25 +81,25 @@
             <nav class="header__nav-wrap">
 
                 <ul class="header__nav">
-                    <a href="index.html" title="">Home</a></li>
+                    <a href="../index" title="">Home</a></li>
                     <li class="has-children">
                         <a href="#0" title="">technology</a>
                         <ul class="sub-menu">
-                            <li class ="current"><a href="category-qucom">量子コンピュータ</a></li>
-                            <li class ="current"><a href="category-julia">julia</a></li>
-                            <li><a href="category">Phisics</a></li>
-                            <li><a href="category">math</a></li>
+                            <li class ="current"><a href="../category-qucom">量子コンピュータ</a></li>
+                            <li class ="current"><a href="../category-julia">julia</a></li>
+                            <li><a href="../category">Phisics</a></li>
+                            <li><a href="../category">math</a></li>
                         </ul>
                     </li>
                     <li class="has-children">
                         <a href="#0" title="">Social Blog</a>
                         <ul class="sub-menu">
-                            <li><a href="category.html">Travel Post</a></li>
-                            <li><a href="category.html">WebNovel Post</a></li>
-                            <li><a href="category-other.html">Other Post</a></li>
+                            <li><a href="../category.html">Travel Post</a></li>
+                            <li><a href="../category.html">WebNovel Post</a></li>
+                            <li><a href="../category-other.html">Other Post</a></li>
                         </ul>
                     </li>
-                    <li><a href="about-sizumi" title="">About</a></li>
+                    <li><a href="../about-sizumi" title="">About</a></li>
                 </ul> <!-- end header__nav -->
 
                 <ul class="header__social">
@@ -131,7 +131,7 @@
 
                     <div class="media-wrap entry__media">
                         <div class="entry__post-thumb">
-                            <img src="images/quantum/yao_entanglement/yao_logo-brack.webp"
+                            <img src="../images/quantum/yao_entanglement/yao_logo-brack.webp"
                              sizes="(max-width: 1600px) 100vw, 1600px" alt="Yao.jlのロゴ">
                             <!--  ヘッドの画像 -->
                         </div>
@@ -144,8 +144,8 @@
                         <ul class="entry__header-meta">
                             <li class="date">2020/9/9</li>
                             <li class="cat-links">
-                                <a href="category-qucom">量子コンピュータ</a>
-                                <a href="category-julia">Julia</a>
+                                <a href="../category-qucom">量子コンピュータ</a>
+                                <a href="../category-julia">Julia</a>
                             </li>
                         </ul>
                     </div> <!-- end entry__header -->
@@ -161,7 +161,7 @@
                         <h2>3量子ビットをもつれさせたい！</h2>
                         <p>
                             　今回は新しい知識を必要としないので、早速、回路図を示していきます。じゃん。
-                            <img src="images/quantum/yao_entanglement/GHZ3_circuit.svg">
+                            <img src="../images/quantum/yao_entanglement/GHZ3_circuit.svg">
                             階段状にCNOTゲートを配置していく感じです。
                             簡単。ではでは実装です。
                         </p>
@@ -181,7 +181,7 @@ GHZ3_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 </code></pre>
 
                         <p>　ほんとに、新しい知識がないですね。結果はこんな感じ。</p>
-                        <img src ="images/quantum/yao_entanglement/GHZ3_graff.svg">
+                        <img src ="../images/quantum/yao_entanglement/GHZ3_graff.svg">
                         
                         <p>　グラフより、\( |000 \rangle , |111 \rangle \)をそれぞれ大体500回ずつ、観測したことがわかります。
                             ちなみに、回路の構成は別のものもあります。
@@ -240,7 +240,7 @@ hist = fit(Histogram, Int.(results), 0:2^4)
 GHZ4_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 </code></pre>
 
-                        <img src="images/quantum/yao_entanglement/GHZ4_graff.svg">
+                        <img src="../images/quantum/yao_entanglement/GHZ4_graff.svg">
 
                         <p>
                             　<code>repeat</code>という新しい関数がでてきました。
@@ -281,7 +281,7 @@ GHZ4_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                         <p>
                             　続いて、<code>control(2, 1=>X),control(4, 3=>X)</code>の2つを作用させていきます。
                             これを図解すると、以下のとおりです。矢印の方向に制御ビット→標的ビットとなっています。
-                            <img src="images/quantum/yao_entanglement/cal_resul01.svg">
+                            <img src="../images/quantum/yao_entanglement/cal_resul01.svg">
                             よって、計算結果は
                             \[ \frac{1}{\sqrt{2^3}} (|10 \rangle + |11 \rangle) \otimes (|00 \rangle + |01 \rangle + |10 \rangle + |11 \rangle) \]
                             \[ \xrightarrow{CNOT(2,1),CNOT(4,3)}
@@ -376,9 +376,9 @@ savefig(A, path_png)
                         <p class="entry__tags">
                             <span>Post Tags</span>
                             <span class="entry__tag-list">
-                                <a href="category-qucom">量子コンピュータ</a>
+                                <a href="../category-qucom">量子コンピュータ</a>
                                 <a href="#0">Yao.jl</a>
-                                <a href="category-julia">Julia</a>
+                                <a href="../category-julia">Julia</a>
                                 <a href="#0">入門</a>
                             </span>
             
@@ -406,8 +406,8 @@ savefig(A, path_png)
                         <h3 class="h2">Related Articles</h3>
                             <ul class="related">
                                 <li class="related__item">
-                                    <a href="intro_qc_adc" class="related__link">
-                                        <img src="images/quantum/adcal/front-sr-600.webp" alt="">
+                                    <a href="../qcom/intro_qc_adc" class="related__link">
+                                        <img src="../images/quantum/adcal/front-sr-600.webp" alt="">
                                     </a>
                                     <h5 class="related__post-title">量子コンピュータ入門 - なぜ早いのか</h5>
                                 </li>
@@ -460,8 +460,8 @@ savefig(A, path_png)
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>

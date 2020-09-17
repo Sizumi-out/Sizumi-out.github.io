@@ -15,21 +15,21 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/vendor.css">
+    <link rel="stylesheet" href="../css/main.css">
 
     <!-- script
     ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <script src="../js/modernizr.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- favicons
     ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
 
 </head>
 
@@ -54,7 +54,7 @@
             <div class="header__top">
                 <div class="header__logo">
                     <a class="site-logo" href="https://sizumi.net">
-                        <img src="images/logo.svg" alt="Homepage">
+                        <img src="../images/logo.svg" alt="Homepage">
                     </a>
                 </div>
 
@@ -81,25 +81,25 @@
             <nav class="header__nav-wrap">
 
                 <ul class="header__nav">
-                    <li class="current"><a href="https://sizumi.net" title="">Home</a></li>
+                    <a href="../index" title="">Home</a></li>
                     <li class="has-children">
                         <a href="#0" title="">technology</a>
                         <ul class="sub-menu">
-                            <li class ="current"><a href="category-qucom">量子コンピュータ</a></li>
-                            <li class ="current"><a href="category-julia">julia</a></li>
-                            <li><a href="category">Phisics</a></li>
-                            <li><a href="category">math</a></li>
+                            <li class ="current"><a href="../category-qucom">量子コンピュータ</a></li>
+                            <li class ="current"><a href="../category-julia">julia</a></li>
+                            <li><a href="../category">Phisics</a></li>
+                            <li><a href="../category">math</a></li>
                         </ul>
                     </li>
                     <li class="has-children">
                         <a href="#0" title="">Social Blog</a>
                         <ul class="sub-menu">
-                            <li><a href="category">Travel Post</a></li>
-                            <li><a href="category">WebNovel Post</a></li>
-                            <li><a href="category-other">Other Post</a></li>
+                            <li><a href="../category.html">Travel Post</a></li>
+                            <li><a href="../category.html">WebNovel Post</a></li>
+                            <li><a href="../category-other.html">Other Post</a></li>
                         </ul>
                     </li>
-                    <li><a href="about-sizumi">About</a></li>
+                    <li><a href="../about-sizumi" title="">About</a></li>
                 </ul> <!-- end header__nav -->
 
                 <ul class="header__social">
@@ -117,6 +117,7 @@
 
             </nav> <!-- end header__nav-wrap -->
 
+            
 
         </header> <!-- end s-header -->
 
@@ -130,7 +131,7 @@
 
                     <div class="media-wrap entry__media">
                         <div class="entry__post-thumb">
-                            <img src="images/quantum/yao_entanglement/yao_logo-brack.webp"
+                            <img src="../images/quantum/yao_entanglement/yao_logo-brack.webp"
                              sizes="(max-width: 1600px) 100vw, 1600px" alt="Yao.jlのロゴ">
                             <!--  ヘッドの画像 -->
                         </div>
@@ -143,8 +144,8 @@
                         <ul class="entry__header-meta">
                             <li class="date">2020/9/2</li>
                             <li class="cat-links">
-                                <a href="category-qucom">量子コンピュータ</a>
-                                <a href="category-julia">Julia</a>
+                                <a href="../category-qucom">量子コンピュータ</a>
+                                <a href="../category-julia">Julia</a>
                             </li>
                         </ul>
                     </div> <!-- end entry__header -->
@@ -281,7 +282,7 @@
                             まず、2量子ビットで単純なエンタングルメントであるベル状態を形成する回路を見てみます。
                         </p>
 
-                        <img src="images/quantum/yao_entanglement/Bell_circuit.svg">
+                        <img src="../images/quantum/yao_entanglement/Bell_circuit.svg">
 
                         <p>
                             　なんか、横線が引いてあって、文字の書かれた四角とか置いてあります。
@@ -392,7 +393,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             <code>hist.weights, legend =:none</code>はそれぞれ、「変数histの各ビット列の出現回数」、「ラベルなし」を示しています。
                         </p>
 
-                            <img src ="images/quantum/yao_entanglement/yao_entngl_1.svg">
+                            <img src ="../images/quantum/yao_entanglement/yao_entngl_1.svg">
                         <p>
                             　先程のコードを実行すると、上のようなヒストグラムが得られると思います。 
                             横軸の目盛りはそれぞれ、\( 00, 01, 10, 00 \)の量子ビット列を意味しているので、
@@ -409,7 +410,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                         
                         <p>　さて、ゲートがどのような行列なのか、結果がどうなったのかを踏まえて考察していきましょう。
                             　回路は図で示すと以下のようなものでした。
-                            <img src="images/quantum/yao_entanglement/Bell_circuit.svg">
+                            <img src="../images/quantum/yao_entanglement/Bell_circuit.svg">
                         </p>
 
                         <p>
@@ -469,9 +470,9 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                             <span>Post Tags</span>
         
                             <span class="entry__tag-list">
-                                <a href="category-qucom">量子コンピュータ</a>
+                                <a href="../category-qucom">量子コンピュータ</a>
                                 <a href="#0">Yao.jl</a>
-                                <a href="category-julia">Julia</a>
+                                <a href="../category-julia">Julia</a>
                                 <a href="#0">入門</a>
                             </span>
 
@@ -481,7 +482,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
                     <div class="entry__pagenav">
                         <div class="entry__nav">
                             <div class="entry__prev">
-                                <a href="intro_qc_adc" rel="prev">
+                                <a href="../qcom/intro_qc_adc" rel="prev">
                                     <span>Previous Post</span>
                                     量子コンピュータ入門 - なぜ早いのか
                                 </a>
@@ -503,7 +504,7 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 
 
                     <!-- 日本語化したJSを読み込む -->
-                    <script type="text/javascript" src="js/comment.js"></script>
+                    <script type="text/javascript" src="../js/comment.js"></script>
                     <!-- begin wwww.htmlcommentbox.com -->
                     <div id="HCB_comment_box">loading...</div>
                     <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
@@ -538,8 +539,8 @@ Bell_graff = bar(hist.edges[1] .- 0.5, hist.weights, legend =:none)
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
