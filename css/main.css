@@ -2607,15 +2607,6 @@ input::-moz-focus-inner {
   background-image: url(../images/GitHub-Mark/GitHub-Mark-Light-64px.png);
 }
 
-/* -------------------------------------------------------------------
- * ## Added header searchr
- * ------------------------------------------------------------------- */
-.sercher{
-  width: 70%;
-  max-width: 700px;
-  margin: 0 20% auto;
-}
-
 
 /* -------------------------------------------------------------------
  * ## header search trigger
