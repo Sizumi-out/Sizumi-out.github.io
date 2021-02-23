@@ -60,17 +60,20 @@
                 <div class="header__search">
 
                     <!--
-
-                    <input type="submit" name="sa" value="Search" />    -->
+                    <script async src="https://cse.google.com/cse.js?cx=d15cdc63bb41ffe12"></script>
+                    <div class="gcse-searchbox-only"></div>   
+                    
+                    <input type="hidden" name="ie" value="UTF-8" /> 
+                     name="sa" value="Search" 
+                    -->
     
                     <form role="search" method="get" class="header__search-form" id="cse-search-box" action="https://google.com/cse" >
                         <input type="hidden" name="cx" value="d15cdc63bb41ffe12" />
-                        <input type="hidden" name="ie" value="UTF-8" />
                         <label>
                             <span class="hide-content">Search for:</span>
                             <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="q" title="Search for:" size="31" />
                         </label>
-                        <input type="submit" class="header__search-submit" name="sa" value="Search" />
+                        <input type="submit" class="header__search-submit"/>
                     </form>
         
                     <a href="#0" title="Close Search" class="header__search-close">Close</a>
@@ -310,7 +313,7 @@
         ================================================== -->
         <footer class="s-footer">
 
-            <div id ="search_box" style="width: 70%; margin: 0 20% auto;">
+            <div id ="search_box" class="searcher">
                 <script async src="https://cse.google.com/cse.js?cx=d15cdc63bb41ffe12"></script>
                 <div class="gcse-searchbox-only"></div>
             </div>

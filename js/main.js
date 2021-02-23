@@ -71,7 +71,6 @@
             e.preventDefault();
             e.stopPropagation();
         
-            var $this = $(this);
         
             siteBody.addClass('search-is-visible');
             setTimeout(function(){
@@ -81,8 +80,6 @@
         });
 
         closeSearch.on('click', function(e) {
-
-            var $this = $(this);
         
             e.stopPropagation(); 
         

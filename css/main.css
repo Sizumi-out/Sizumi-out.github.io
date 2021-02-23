@@ -2609,6 +2609,30 @@ input::-moz-focus-inner {
 
 
 /* -------------------------------------------------------------------
+  searcher
+------------------------------------------------------------------- */
+.searcher{
+  width: 70%;
+  margin: 0 20% auto;
+}
+
+.gsc-search-button path{
+  height: 3rem;
+  width: auto;
+}
+
+@media screen and (max-width: 500px) {
+  .searcher {
+    width: 70%;
+  }
+
+  .gsc-search-box td{
+    padding: 0.5rem 0.5rem !important;
+  }
+
+}
+
+/* -------------------------------------------------------------------
  * ## header search trigger
  * ------------------------------------------------------------------- */
 .header__search-trigger {
